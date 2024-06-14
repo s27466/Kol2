@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Kol2.Services;
 
-public class PaymentService
+public class PaymentService : IPaymentService
 {
     private readonly SubscriptionsDbContext _context;
 

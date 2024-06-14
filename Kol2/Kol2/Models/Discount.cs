@@ -8,7 +8,7 @@ public class Discount
     public int IdDiscount { get; set; }
     public int SubscriptionId { get; set; }
     public Subscription Subscription { get; set; }
-    public int Value { get; set; } // percentage
+    public int Value { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime? EndDate { get; set; }
 }

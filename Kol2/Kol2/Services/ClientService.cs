@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Kol2.Services;
 
-public class ClientService
+public class ClientService : IClientService
 {
     private readonly SubscriptionsDbContext _context;
 

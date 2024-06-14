@@ -7,9 +7,9 @@ namespace Kol2.Controllers;
 [Route("api/[controller]")]
 public class ClientController : ControllerBase
 {
-    private readonly ClientService _clientService;
+    private readonly IClientService _clientService;
 
-    public ClientController(ClientService clientService)
+    public ClientController(IClientService clientService)
     {
         _clientService = clientService;
     }

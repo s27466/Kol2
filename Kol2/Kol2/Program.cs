@@ -1,4 +1,5 @@
 using Kol2.Context;
+using Kol2.Services;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -9,7 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 
 builder.Services.AddDbContext<SubscriptionsDbContext>(opt =>
 {

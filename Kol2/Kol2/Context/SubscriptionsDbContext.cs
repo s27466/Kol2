@@ -22,8 +22,7 @@ public class SubscriptionsDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        // Configure relationships, indexes, etc.
+        
         modelBuilder.Entity<Client>()
             .HasMany(c => c.Subscriptions)
             .WithOne(s => s.Client)
