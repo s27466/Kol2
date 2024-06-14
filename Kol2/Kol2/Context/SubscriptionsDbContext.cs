@@ -27,16 +27,19 @@ public class SubscriptionsDbContext : DbContext
         modelBuilder.Entity<Client>()
             .HasMany(c => c.Subscriptions)
             .WithOne(s => s.Client)
-            .HasForeignKey(s => s.ClientId);
+            .HasForeignKey(s => s.ClientId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<Subscription>()
             .HasMany(s => s.Payments)
             .WithOne(p => p.Subscription)
-            .HasForeignKey(p => p.SubscriptionId);
+            .HasForeignKey(p => p.SubscriptionId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<Subscription>()
             .HasMany(s => s.Discounts)
             .WithOne(d => d.Subscription)
-            .HasForeignKey(d => d.SubscriptionId);
+            .HasForeignKey(d => d.SubscriptionId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

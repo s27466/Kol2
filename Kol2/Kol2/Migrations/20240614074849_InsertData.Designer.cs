@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kol2.Migrations
 {
     [DbContext(typeof(SubscriptionsDbContext))]
-    [Migration("20240614072155_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240614074849_InsertData")]
+    partial class InsertData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -149,7 +149,7 @@ namespace Kol2.Migrations
                     b.HasOne("Kol2.Models.Subscription", "Subscription")
                         .WithMany("Discounts")
                         .HasForeignKey("SubscriptionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Subscription");
@@ -166,7 +166,7 @@ namespace Kol2.Migrations
                     b.HasOne("Kol2.Models.Subscription", "Subscription")
                         .WithMany("Payments")
                         .HasForeignKey("SubscriptionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Client");
@@ -179,7 +179,7 @@ namespace Kol2.Migrations
                     b.HasOne("Kol2.Models.Client", "Client")
                         .WithMany("Subscriptions")
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Client");

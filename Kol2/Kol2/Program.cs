@@ -9,11 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-//builder.Services.AddScoped<IClientsService, ClientsService>();
+
 
 builder.Services.AddDbContext<SubscriptionsDbContext>(opt =>
 {
-    opt.UseSqlServer("Server=db-mssql16;Database=2019SBD;Trusted_Connection=True;");
+    opt.UseSqlServer("Data Source=db-mssql;Initial Catalog=2019SBD;Integrated Security=True;Trust Server Certificate=True");
 });
 
 var app = builder.Build();
